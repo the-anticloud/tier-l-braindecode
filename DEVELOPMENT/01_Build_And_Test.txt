@@ -1,0 +1,8 @@
+ Build & Test — L_BRAINDECODE
+
+bash
+git clone https://github.com/braindecode/braindecode
+cd l-braindecode
+pip install -e .dev
+pytest tests/
+

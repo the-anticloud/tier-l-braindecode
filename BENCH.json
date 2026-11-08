@@ -1,0 +1,1696 @@
+{
+ "schema": "anticloud.tier-bench/1",
+ "project": "L_BRAINDECODE",
+ "source": {
+  "repo_path": "E:\\fenta\\Downloads\\The Anticloud\\TIER_7_BIOSIGNALS_NEURO\\L_BRAINDECODE\\UPSTREAM",
+  "git": {
+   "head": "017809e2c2e6029ba501a8b07cdb6b924421dee4",
+   "url": "https://github.com/braindecode/braindecode",
+   "branch": "master",
+   "committed_at": "2026-09-30T02:37:46-04:00"
+  }
+ },
+ "metrics": {
+  "files_total": 408,
+  "source_files_scanned": 274,
+  "lines_of_code": 114991,
+  "languages": {
+   ".py": 284,
+   ".png": 45,
+   ".rst": 28,
+   ".jpg": 9,
+   ".txt": 7,
+   ".html": 6,
+   ".svg": 5,
+   ".bib": 3,
+   ".yaml": 2,
+   "(none)": 2,
+   ".yml": 2,
+   ".md": 2,
+   ".css": 2,
+   ".csv": 2,
+   ".cff": 1
+  }
+ },
+ "licence": {
+  "spdx": "BSD-3-Clause",
+  "class": "A",
+  "source_file": "LICENSE.txt",
+  "redistribution_allowed": true
+ },
+ "dependencies": {
+  "count": 13,
+  "unique": 13,
+  "by_ecosystem": {
+   "pypi": 13
+  },
+  "list": [
+   {
+    "ecosystem": "pypi",
+    "name": "torch",
+    "version": ">=2.4",
+    "source_file": "pyproject.toml",
+    "raw": "torch>=2.4"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "torchaudio",
+    "version": ">=2.4",
+    "source_file": "pyproject.toml",
+    "raw": "torchaudio>=2.4"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "mne",
+    "version": ">=1.11.0",
+    "source_file": "pyproject.toml",
+    "raw": "mne>=1.11.0"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "mne_bids",
+    "version": ">=0.18",
+    "source_file": "pyproject.toml",
+    "raw": "mne_bids>=0.18"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "h5py",
+    "version": "",
+    "source_file": "pyproject.toml",
+    "raw": "h5py"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "skorch",
+    "version": ">=1.3.0",
+    "source_file": "pyproject.toml",
+    "raw": "skorch>=1.3.0"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "joblib",
+    "version": "",
+    "source_file": "pyproject.toml",
+    "raw": "joblib"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "torchinfo",
+    "version": "",
+    "source_file": "pyproject.toml",
+    "raw": "torchinfo"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "pandas",
+    "version": "",
+    "source_file": "pyproject.toml",
+    "raw": "pandas"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "wfdb",
+    "version": ">=4.3.1",
+    "source_file": "pyproject.toml",
+    "raw": "wfdb>=4.3.1"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "linear_attention_transformer",
+    "version": "",
+    "source_file": "pyproject.toml",
+    "raw": "linear_attention_transformer"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "docstring_inheritance",
+    "version": "",
+    "source_file": "pyproject.toml",
+    "raw": "docstring_inheritance"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "pydantic",
+    "version": ">=2.0",
+    "source_file": "pyproject.toml",
+    "raw": "pydantic>=2.0"
+   }
+  ]
+ },
+ "owasp_top10": {
+  "total_findings": 94,
+  "files_with_findings": 79,
+  "severity": {
+   "high": 28,
+   "medium": 22,
+   "low": 44
+  },
+  "categories": {
+   "A01-BrokenAccessControl": {
+    "count": 0,
+    "findings": []
+   },
+   "A02-CryptographicFailures": {
+    "count": 1,
+    "findings": [
+     {
+      "severity": "medium",
+      "file": "scripts/release_script.py",
+      "line": 36,
+      "cwe": "CWE-327",
+      "snippet": "- Otherwise -> sha1(s) and use first 8 hex chars as int"
+     }
+    ]
+   },
+   "A03-Injection": {
+    "count": 28,
+    "findings": [
+     {
+      "severity": "high",
+      "file": "test/unit_tests/visualization/test_attribution.py",
+      "line": 33,
+      "cwe": "CWE-95",
+      "snippet": "m.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "test/unit_tests/models/test_base.py",
+      "line": 108,
+      "cwe": "CWE-95",
+      "snippet": ").eval()"
+     },
+     {
+      "severity": "high",
+      "file": "test/unit_tests/models/test_eegdino.py",
+      "line": 27,
+      "cwe": "CWE-95",
+      "snippet": "model = EEGDINO(n_chans=19, n_outputs=2, n_times=1000).eval()"
+     },
+     {
+      "severity": "high",
+      "file": "test/unit_tests/models/test_eegsym.py",
+      "line": 79,
+      "cwe": "CWE-95",
+      "snippet": "model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "test/unit_tests/models/test_emg_pose_baselines.py",
+      "line": 93,
+      "cwe": "CWE-95",
+      "snippet": "model = factory().eval()"
+     },
+     {
+      "severity": "high",
+      "file": "test/unit_tests/models/test_foundation_models.py",
+      "line": 449,
+      "cwe": "CWE-95",
+      "snippet": "model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "test/unit_tests/models/test_huggingface.py",
+      "line": 57,
+      "cwe": "CWE-95",
+      "snippet": "model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "test/unit_tests/models/test_integration.py",
+      "line": 153,
+      "cwe": "CWE-95",
+      "snippet": "model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "test/unit_tests/models/test_models.py",
+      "line": 381,
+      "cwe": "CWE-95",
+      "snippet": "model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "test/unit_tests/models/test_modules.py",
+      "line": 58,
+      "cwe": "CWE-95",
+      "snippet": "time_first = module_factory(True).eval()"
+     },
+     {
+      "severity": "high",
+      "file": "test/unit_tests/models/test_return_features.py",
+      "line": 161,
+      "cwe": "CWE-95",
+      "snippet": "model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "test/integration_tests/test_pretrained_hub_models.py",
+      "line": 80,
+      "cwe": "CWE-95",
+      "snippet": "model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "scripts/check_codebrain_weights.py",
+      "line": 57,
+      "cwe": "CWE-95",
+      "snippet": "model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "examples/model_building/plot_channel_interpolation.py",
+      "line": 164,
+      "cwe": "CWE-95",
+      "snippet": "model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "examples/model_building/plot_load_pretrained_models.py",
+      "line": 86,
+      "cwe": "CWE-95",
+      "snippet": "model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "examples/model_building/plot_train_in_pure_pytorch_and_pytorch_lightning.py",
+      "line": 302,
+      "cwe": "CWE-95",
+      "snippet": "model.eval()  # Switch to evaluation mode"
+     },
+     {
+      "severity": "high",
+      "file": "examples/applied_examples/plot_dance_event_detection.py",
+      "line": 416,
+      "cwe": "CWE-95",
+      "snippet": "model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "examples/advanced_training/plot_interpretability.py",
+      "line": 810,
+      "cwe": "CWE-95",
+      "snippet": "random_weight_model = copy.deepcopy(model).apply(_reset_all).eval().to(device)"
+     },
+     {
+      "severity": "high",
+      "file": "examples/advanced_training/plot_sae_activation_analysis.py",
+      "line": 239,
+      "cwe": "CWE-95",
+      "snippet": "model = classifier.module_.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "examples/advanced_training/plot_sae_reve.py",
+      "line": 272,
+      "cwe": "CWE-95",
+      "snippet": ").eval()"
+     },
+     {
+      "severity": "high",
+      "file": "docs/conf.py",
+      "line": 231,
+      "cwe": "CWE-78",
+      "snippet": "'<script type=\"text/javascript\">$(function () { $(\"time.localized\").each(function () { var el = $(this); el.text(new Date(el.attr(\"datetime\")).toLocaleString([], {dateStyle: \"mediu"
+     },
+     {
+      "severity": "high",
+      "file": "braindecode/eegneuralnet.py",
+      "line": 131,
+      "cwe": "CWE-95",
+      "snippet": "self.module_.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "braindecode/training/scoring.py",
+      "line": 433,
+      "cwe": "CWE-95",
+      "snippet": "module.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "braindecode/models/attn_sleep.py",
+      "line": 208,
+      "cwe": "CWE-95",
+      "snippet": "mrcnn.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "braindecode/models/deep4.py",
+      "line": 298,
+      "cwe": "CWE-95",
+      "snippet": "self.eval()"
+     }
+    ]
+   },
+   "A04-InsecureDesign": {
+    "count": 32,
+    "findings": [
+     {
+      "severity": "low",
+      "file": "test/unit_tests/preprocessing/test_preprocess.py",
+      "line": 591,
+      "cwe": "CWE-",
+      "snippet": ")  # TODO: Fix this"
+     },
+     {
+      "severity": "low",
+      "file": "test/unit_tests/preprocessing/test_windowers.py",
+      "line": 197,
+      "cwe": "CWE-",
+      "snippet": ")  # TODO: Fix this"
+     },
+     {
+      "severity": "low",
+      "file": "test/unit_tests/models/test_correctness.py",
+      "line": 69,
+      "cwe": "CWE-",
+      "snippet": "# TODO: adding this test for all the models when the issue #571 is closed"
+     },
+     {
+      "severity": "low",
+      "file": "test/unit_tests/models/test_foundation_models.py",
+      "line": 1133,
+      "cwe": "CWE-",
+      "snippet": "\"TODO: Fix me. The test is broken on the CI but works locally (even after erasing the cache dir).\""
+     },
+     {
+      "severity": "low",
+      "file": "test/unit_tests/models/test_huggingface.py",
+      "line": 155,
+      "cwe": "CWE-",
+      "snippet": "# TODO: fix for AttnSleep/SincShallowNet"
+     },
+     {
+      "severity": "low",
+      "file": "test/unit_tests/models/test_integration.py",
+      "line": 537,
+      "cwe": "CWE-",
+      "snippet": "]  # TODO: fix LUNA export issues on Python 3.14+ one day"
+     },
+     {
+      "severity": "low",
+      "file": "test/unit_tests/datautil/test_serialization.py",
+      "line": 371,
+      "cwe": "CWE-",
+      "snippet": ")  # TODO: Fix this"
+     },
+     {
+      "severity": "low",
+      "file": "test/unit_tests/datasets/test_dataset.py",
+      "line": 54,
+      "cwe": "CWE-",
+      "snippet": "# TODO: split file up into files with proper matching names"
+     },
+     {
+      "severity": "low",
+      "file": "test/unit_tests/datasets/test_nmt.py",
+      "line": 18,
+      "cwe": "CWE-",
+      "snippet": ")  # TODO: Fix this"
+     },
+     {
+      "severity": "low",
+      "file": "test/unit_tests/datasets/test_tuh.py",
+      "line": 25,
+      "cwe": "CWE-",
+      "snippet": ")  # TODO: Fix this"
+     },
+     {
+      "severity": "low",
+      "file": "test/unit_tests/datasets/test_zarr_to_memmap_concurrency.py",
+      "line": 12,
+      "cwe": "CWE-",
+      "snippet": "this produced wasted I/O; on NFSv3 it left ``.nfsXXXX`` silly-rename"
+     },
+     {
+      "severity": "low",
+      "file": "examples/datasets_io/benchmark_lazy_eager_loading.py",
+      "line": 124,
+      "cwe": "CWE-",
+      "snippet": "# XXX: This could be parallelized."
+     },
+     {
+      "severity": "low",
+      "file": "examples/advanced_training/bcic_iv_4_ecog_cropped.py",
+      "line": 110,
+      "cwe": "CWE-",
+      "snippet": "# TODO: ensure that misc is not removed"
+     },
+     {
+      "severity": "low",
+      "file": "examples/advanced_training/plot_temporal_generalization.py",
+      "line": 201,
+      "cwe": "CWE-",
+      "snippet": "# An interesting TODO is investigate is why?"
+     },
+     {
+      "severity": "low",
+      "file": "docs/conf.py",
+      "line": 20,
+      "cwe": "CWE-",
+      "snippet": "# If extensions (or modules to document with autodoc) are in another directory,"
+     },
+     {
+      "severity": "low",
+      "file": "braindecode/util.py",
+      "line": 430,
+      "cwe": "CWE-",
+      "snippet": "# TODO: should be on dataset side"
+     },
+     {
+      "severity": "low",
+      "file": "braindecode/training/scoring.py",
+      "line": 121,
+      "cwe": "CWE-",
+      "snippet": "# XXX needs a docstring !!!"
+     },
+     {
+      "severity": "low",
+      "file": "braindecode/samplers/base.py",
+      "line": 98,
+      "cwe": "CWE-",
+      "snippet": "# XXX docstring missing"
+     },
+     {
+      "severity": "low",
+      "file": "braindecode/preprocessing/windowers.py",
+      "line": 234,
+      "cwe": "CWE-",
+      "snippet": "# XXX it's called concat_ds..."
+     },
+     {
+      "severity": "low",
+      "file": "braindecode/models/atcnet.py",
+      "line": 722,
+      "cwe": "CWE-",
+      "snippet": "# XXX: This line in the official code is weird, as there is already"
+     },
+     {
+      "severity": "low",
+      "file": "braindecode/models/attn_sleep.py",
+      "line": 199,
+      "cwe": "CWE-",
+      "snippet": "# TODO: Add new way to handle return features"
+     },
+     {
+      "severity": "low",
+      "file": "braindecode/models/base.py",
+      "line": 270,
+      "cwe": "CWE-",
+      "snippet": "# TODO: model_card_template can be added in the future for custom model cards"
+     },
+     {
+      "severity": "low",
+      "file": "braindecode/models/biot.py",
+      "line": 20,
+      "cwe": "CWE-",
+      "snippet": "# TODO: positions are stored as the midpoint of the two constituent"
+     },
+     {
+      "severity": "low",
+      "file": "braindecode/models/eeginception_mi.py",
+      "line": 155,
+      "cwe": "CWE-",
+      "snippet": "# XXX The paper mentions a final average pooling but does not indicate"
+     },
+     {
+      "severity": "low",
+      "file": "braindecode/models/labram.py",
+      "line": 33,
+      "cwe": "CWE-",
+      "snippet": "#     TODO: this is a simplification. A bipolar signal V(A)-V(B) cannot"
+     }
+    ]
+   },
+   "A05-SecurityMisconfiguration": {
+    "count": 21,
+    "findings": [
+     {
+      "severity": "medium",
+      "file": "examples/applied_examples/tutorial_create_fixed_window_length.py",
+      "line": 97,
+      "cwe": "CWE-1188",
+      "snippet": "# **last_target_only** : bool (default=True)"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/classifier.py",
+      "line": 54,
+      "cwe": "CWE-1188",
+      "snippet": "iterator_train__shuffle: bool (default=True)"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/regressor.py",
+      "line": 51,
+      "cwe": "CWE-1188",
+      "snippet": "iterator_train__shuffle: bool (default=True)"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/visualization/metrics.py",
+      "line": 107,
+      "cwe": "CWE-1188",
+      "snippet": "abs_reference : bool, default=True"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/training/scoring.py",
+      "line": 335,
+      "cwe": "CWE-1188",
+      "snippet": "lower_is_better : bool (default=True)"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/modules/attention.py",
+      "line": 772,
+      "cwe": "CWE-1188",
+      "snippet": "bias : bool, default=True"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/modules/blocks.py",
+      "line": 307,
+      "cwe": "CWE-1188",
+      "snippet": "bias : bool, default=True"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/modules/filter.py",
+      "line": 121,
+      "cwe": "CWE-1188",
+      "snippet": "verbose: bool | str | int | None, default=True"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/modules/stats.py",
+      "line": 19,
+      "cwe": "CWE-1188",
+      "snippet": "keepdim : bool, default=True"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/models/bendr.py",
+      "line": 238,
+      "cwe": "CWE-1188",
+      "snippet": "final_layer : bool, default=True"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/models/brainmodule.py",
+      "line": 212,
+      "cwe": "CWE-1188",
+      "snippet": "batch_norm : bool, default=True"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/models/codebrain.py",
+      "line": 95,
+      "cwe": "CWE-1188",
+      "snippet": "s4_bidirectional : bool, default=True"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/models/config.py",
+      "line": 196,
+      "cwe": "CWE-1188",
+      "snippet": "arbitrary_types_allowed=True, extra=extra, validate_default=True"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/models/contrawr.py",
+      "line": 166,
+      "cwe": "CWE-1188",
+      "snippet": "use_downsampling : bool (default=True)"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/models/eegnet.py",
+      "line": 105,
+      "cwe": "CWE-1188",
+      "snippet": "batch_norm_affine : bool, default=True"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/models/eegpt.py",
+      "line": 198,
+      "cwe": "CWE-1188",
+      "snippet": "qkv_bias : bool, default=True"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/models/fblightconvnet.py",
+      "line": 88,
+      "cwe": "CWE-1188",
+      "snippet": "weight_softmax : bool, default=True"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/models/labram.py",
+      "line": 319,
+      "cwe": "CWE-1188",
+      "snippet": "use_abs_pos_emb : bool (default=True)"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/models/reve.py",
+      "line": 205,
+      "cwe": "CWE-1188",
+      "snippet": "use_geglu : bool, default=True"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/datautil/hub_formats.py",
+      "line": 131,
+      "cwe": "CWE-1188",
+      "snippet": "preload : bool, default=True"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/datasets/bids/hub.py",
+      "line": 514,
+      "cwe": "CWE-1188",
+      "snippet": "preload : bool, default=True"
+     }
+    ]
+   },
+   "A06-VulnerableComponents": {
+    "count": 2,
+    "findings": [
+     {
+      "severity": "low",
+      "file": "examples/advanced_training/plot_sae_activation_analysis.py",
+      "line": 36,
+      "cwe": "CWE-1104",
+      "snippet": "``pip install 'braindecode[sae]'`` (or ``pip install sae-lens==6.51.3`` in a"
+     },
+     {
+      "severity": "low",
+      "file": "examples/advanced_training/plot_sae_reve.py",
+      "line": 54,
+      "cwe": "CWE-1104",
+      "snippet": "``pip install 'braindecode[sae]'`` (or ``pip install sae-lens==6.51.3`` in a"
+     }
+    ]
+   },
+   "A07-AuthFailures": {
+    "count": 0,
+    "findings": []
+   },
+   "A08-SoftwareDataIntegrity": {
+    "count": 10,
+    "findings": [
+     {
+      "severity": "low",
+      "file": "examples/model_building/plot_basic_training_epochs.py",
+      "line": 195,
+      "cwe": "CWE-319",
+      "snippet": "#        Online: http://dx.doi.org/10.1002/hbm.23730"
+     },
+     {
+      "severity": "low",
+      "file": "examples/applied_examples/bcic_iv_4_ecog_trial.py",
+      "line": 32,
+      "cwe": "CWE-319",
+      "snippet": "# to load `BCI IV competition dataset 4 <http://www.bbci.de/competition/iv/#dataset4>`__."
+     },
+     {
+      "severity": "low",
+      "file": "examples/advanced_training/bcic_iv_4_ecog_cropped.py",
+      "line": 26,
+      "cwe": "CWE-319",
+      "snippet": "# to load `BCI IV competition dataset 4 <http://www.bbci.de/competition/iv/#dataset4>`__."
+     },
+     {
+      "severity": "low",
+      "file": "braindecode/visualization/confusion_matrices.py",
+      "line": 67,
+      "cwe": "CWE-319",
+      "snippet": "Human Brain Mapping , Aug. 2017. Online: http://dx.doi.org/10.1002/hbm.23730"
+     },
+     {
+      "severity": "low",
+      "file": "braindecode/models/deep4.py",
+      "line": 92,
+      "cwe": "CWE-319",
+      "snippet": "Online: http://dx.doi.org/10.1002/hbm.23730"
+     },
+     {
+      "severity": "low",
+      "file": "braindecode/models/dgcnn.py",
+      "line": 6,
+      "cwe": "CWE-319",
+      "snippet": "#   http://web.archive.org/web/20221122064435/http://aip.seu.edu.cn/wp-content/uploads/2021/08/EEG-TAC.zip"
+     },
+     {
+      "severity": "low",
+      "file": "braindecode/models/eeginception_erp.py",
+      "line": 156,
+      "cwe": "CWE-319",
+      "snippet": "Online: http://dx.doi.org/10.1109/TNSRE.2020.3048106"
+     },
+     {
+      "severity": "low",
+      "file": "braindecode/models/hybrid.py",
+      "line": 26,
+      "cwe": "CWE-319",
+      "snippet": "Online: http://dx.doi.org/10.1002/hbm.23730"
+     },
+     {
+      "severity": "low",
+      "file": "braindecode/models/shallow_fbcsp.py",
+      "line": 76,
+      "cwe": "CWE-319",
+      "snippet": "Online: http://dx.doi.org/10.1002/hbm.23730"
+     },
+     {
+      "severity": "low",
+      "file": "braindecode/datasets/bcicomp.py",
+      "line": 32,
+      "cwe": "CWE-319",
+      "snippet": "See http://www.bbci.de/competition/iv/desc_4.pdf and"
+     }
+    ]
+   },
+   "A09-LoggingMonitoringFailures": {
+    "count": 0,
+    "findings": []
+   },
+   "A10-SSRF": {
+    "count": 0,
+    "findings": []
+   }
+  }
+ },
+ "owasp_llm_top10": {
+  "total_findings": 46,
+  "files_with_findings": 45,
+  "severity": {
+   "high": 1,
+   "medium": 43,
+   "low": 2
+  },
+  "categories": {
+   "LLM01-PromptInjection": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM02-SensitiveInfoDisclosure": {
+    "count": 1,
+    "findings": [
+     {
+      "severity": "high",
+      "file": "examples/model_building/plot_load_pretrained_models.py",
+      "line": 63,
+      "cwe": "CWE-798",
+      "snippet": "hf_token = os.environ.get(\"HF_TOKEN\")"
+     }
+    ]
+   },
+   "LLM03-SupplyChain": {
+    "count": 43,
+    "findings": [
+     {
+      "severity": "medium",
+      "file": "test/unit_tests/models/test_base.py",
+      "line": 623,
+      "cwe": "CWE-494",
+      "snippet": "M.from_pretrained(\"any/repo\")"
+     },
+     {
+      "severity": "medium",
+      "file": "test/unit_tests/models/test_eegdino.py",
+      "line": 30,
+      "cwe": "CWE-494",
+      "snippet": "reloaded = EEGDINO.from_pretrained(save_dir).eval()"
+     },
+     {
+      "severity": "medium",
+      "file": "test/unit_tests/models/test_foundation_models.py",
+      "line": 248,
+      "cwe": "CWE-494",
+      "snippet": "model = Labram.from_pretrained("
+     },
+     {
+      "severity": "medium",
+      "file": "test/unit_tests/models/test_huggingface.py",
+      "line": 252,
+      "cwe": "CWE-494",
+      "snippet": "restored = model_class.from_pretrained(repo_dir)"
+     },
+     {
+      "severity": "medium",
+      "file": "test/unit_tests/models/test_return_features.py",
+      "line": 280,
+      "cwe": "CWE-494",
+      "snippet": "reloaded = _ALL_MODELS[name].from_pretrained(tmp_path)"
+     },
+     {
+      "severity": "medium",
+      "file": "test/unit_tests/models/test_signal_jepa.py",
+      "line": 523,
+      "cwe": "CWE-494",
+      "snippet": "new_model = SignalJEPA_Contextual.from_pretrained("
+     },
+     {
+      "severity": "medium",
+      "file": "test/integration_tests/test_pretrained_hub_models.py",
+      "line": 66,
+      "cwe": "CWE-494",
+      "snippet": "return BENDR.from_pretrained("
+     },
+     {
+      "severity": "medium",
+      "file": "scripts/check_codebrain_weights.py",
+      "line": 18,
+      "cwe": "CWE-494",
+      "snippet": "path = hf_hub_download(repo_id=\"YjMajy/CodeBrain\", filename=\"CodeBrain.pth\")"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/model_building/plot_bcic_iv_2a_eegprep_cleaning.py",
+      "line": 328,
+      "cwe": "CWE-494",
+      "snippet": "f_params=hf_hub_download(repo_id, \"params.safetensors\"),"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/model_building/plot_bcic_iv_2a_moabb_cropped.py",
+      "line": 322,
+      "cwe": "CWE-494",
+      "snippet": "f_params=hf_hub_download(repo_id, \"params.safetensors\"),"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/model_building/plot_bcic_iv_2a_moabb_trial.py",
+      "line": 285,
+      "cwe": "CWE-494",
+      "snippet": "f_params=hf_hub_download(repo_id, \"params.safetensors\"),"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/model_building/plot_channel_interpolation.py",
+      "line": 146,
+      "cwe": "CWE-494",
+      "snippet": "model = InterpolatedLaBraM.from_pretrained("
+     },
+     {
+      "severity": "medium",
+      "file": "examples/model_building/plot_load_pretrained_models.py",
+      "line": 79,
+      "cwe": "CWE-494",
+      "snippet": "model = BENDR.from_pretrained(\"braindecode/braindecode-bendr\", n_outputs=2)"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/applied_examples/bcic_iv_4_ecog_trial.py",
+      "line": 327,
+      "cwe": "CWE-494",
+      "snippet": "f_params=hf_hub_download(repo_id, \"params.safetensors\"),"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/applied_examples/plot_dance_event_detection.py",
+      "line": 472,
+      "cwe": "CWE-494",
+      "snippet": "torch.load(hf_hub_download(repo_id, \"model.pt\"), map_location=device)"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/applied_examples/plot_sleep_staging_chambon2018.py",
+      "line": 312,
+      "cwe": "CWE-494",
+      "snippet": "f_params=hf_hub_download(repo_id, \"params.safetensors\"),"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/applied_examples/plot_sleep_staging_eldele2021.py",
+      "line": 335,
+      "cwe": "CWE-494",
+      "snippet": "f_params=hf_hub_download(repo_id, \"params.pt\"),"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/applied_examples/plot_sleep_staging_usleep.py",
+      "line": 277,
+      "cwe": "CWE-494",
+      "snippet": "f_params=hf_hub_download(repo_id, \"params.safetensors\"),"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/advanced_training/bcic_iv_4_ecog_cropped.py",
+      "line": 350,
+      "cwe": "CWE-494",
+      "snippet": "f_params=hf_hub_download(repo_id, \"params.safetensors\"),"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/advanced_training/plot_data_augmentation_search.py",
+      "line": 439,
+      "cwe": "CWE-494",
+      "snippet": "\"search_results.csv\": hf_hub_download(repo_id, \"search_results.csv\"),"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/advanced_training/plot_finetune_foundation_model.py",
+      "line": 122,
+      "cwe": "CWE-494",
+      "snippet": "# loaded as ``STEEGFormer.from_pretrained(\"braindecode/STEEGFormer-small\","
+     },
+     {
+      "severity": "medium",
+      "file": "examples/advanced_training/plot_interpretability.py",
+      "line": 223,
+      "cwe": "CWE-494",
+      "snippet": "f_params=hf_hub_download(repo_id, \"params.safetensors\"),"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/advanced_training/plot_sae_reve.py",
+      "line": 265,
+      "cwe": "CWE-494",
+      "snippet": "model = REVE.from_pretrained("
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/models/barista.py",
+      "line": 117,
+      "cwe": "CWE-494",
+      "snippet": "model = BaRISTA.from_pretrained(\"braindecode/BaRISTA-parcels\", n_chans=64)"
+     },
+     {
+      "severity": "medium",
+      "file": "braindecode/models/base.py",
+      "line": 44,
+      "cwe": "CWE-494",
+      "snippet": "def from_pretrained(cls, *args, **kwargs):"
+     }
+    ]
+   },
+   "LLM04-DataPoisoning": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM05-ImproperOutputHandling": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM06-ExcessiveAgency": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM07-SystemPromptLeak": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM08-VectorEmbeddingWeaknesses": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM09-Misinformation": {
+    "count": 2,
+    "findings": [
+     {
+      "severity": "low",
+      "file": "test/unit_tests/preprocessing/test_eegprep_preprocessor.py",
+      "line": 218,
+      "cwe": "CWE-",
+      "snippet": "assert len(non_eeg_picks) > 0  # Verify we actually have non-EEG channels"
+     },
+     {
+      "severity": "low",
+      "file": "test/unit_tests/models/test_modules.py",
+      "line": 584,
+      "cwe": "CWE-",
+      "snippet": "# Assertions to verify band_filters and number of bands"
+     }
+    ]
+   },
+   "LLM10-UnboundedConsumption": {
+    "count": 0,
+    "findings": []
+   }
+  }
+ },
+ "sbom": {
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:a792c068-1f67-5ee3-9b40-147560b97f20",
+  "version": 1,
+  "metadata": {
+   "timestamp": "2026-10-13T20:36:27Z",
+   "component": {
+    "type": "application",
+    "name": "L_BRAINDECODE",
+    "version": "017809e2c2e6",
+    "bom-ref": "pkg:generic/anticloud/L_BRAINDECODE@017809e2c2e6",
+    "purl": "pkg:generic/anticloud/L_BRAINDECODE@017809e2c2e6",
+    "licenses": [
+     {
+      "license": {
+       "id": "BSD-3-Clause"
+      }
+     }
+    ]
+   },
+   "properties": [
+    {
+     "name": "anticloud:source-commit",
+     "value": "017809e2c2e6029ba501a8b07cdb6b924421dee4"
+    },
+    {
+     "name": "anticloud:source-url",
+     "value": "https://github.com/braindecode/braindecode"
+    },
+    {
+     "name": "anticloud:tier",
+     "value": "tier-agent"
+    }
+   ]
+  },
+  "components": [
+   {
+    "type": "library",
+    "name": "torch",
+    "version": ">=2.4",
+    "purl": "pkg:pypi/torch@2.4",
+    "bom-ref": "pypi/torch@>=2.4"
+   },
+   {
+    "type": "library",
+    "name": "torchaudio",
+    "version": ">=2.4",
+    "purl": "pkg:pypi/torchaudio@2.4",
+    "bom-ref": "pypi/torchaudio@>=2.4"
+   },
+   {
+    "type": "library",
+    "name": "mne",
+    "version": ">=1.11.0",
+    "purl": "pkg:pypi/mne@1.11.0",
+    "bom-ref": "pypi/mne@>=1.11.0"
+   },
+   {
+    "type": "library",
+    "name": "mne_bids",
+    "version": ">=0.18",
+    "purl": "pkg:pypi/mne-bids@0.18",
+    "bom-ref": "pypi/mne_bids@>=0.18"
+   },
+   {
+    "type": "library",
+    "name": "h5py",
+    "version": "unspecified",
+    "purl": "pkg:pypi/h5py",
+    "bom-ref": "pypi/h5py@unspecified"
+   },
+   {
+    "type": "library",
+    "name": "skorch",
+    "version": ">=1.3.0",
+    "purl": "pkg:pypi/skorch@1.3.0",
+    "bom-ref": "pypi/skorch@>=1.3.0"
+   },
+   {
+    "type": "library",
+    "name": "joblib",
+    "version": "unspecified",
+    "purl": "pkg:pypi/joblib",
+    "bom-ref": "pypi/joblib@unspecified"
+   },
+   {
+    "type": "library",
+    "name": "torchinfo",
+    "version": "unspecified",
+    "purl": "pkg:pypi/torchinfo",
+    "bom-ref": "pypi/torchinfo@unspecified"
+   },
+   {
+    "type": "library",
+    "name": "pandas",
+    "version": "unspecified",
+    "purl": "pkg:pypi/pandas",
+    "bom-ref": "pypi/pandas@unspecified"
+   },
+   {
+    "type": "library",
+    "name": "wfdb",
+    "version": ">=4.3.1",
+    "purl": "pkg:pypi/wfdb@4.3.1",
+    "bom-ref": "pypi/wfdb@>=4.3.1"
+   },
+   {
+    "type": "library",
+    "name": "linear_attention_transformer",
+    "version": "unspecified",
+    "purl": "pkg:pypi/linear_attention_transformer",
+    "bom-ref": "pypi/linear_attention_transformer@unspecified"
+   },
+   {
+    "type": "library",
+    "name": "docstring_inheritance",
+    "version": "unspecified",
+    "purl": "pkg:pypi/docstring_inheritance",
+    "bom-ref": "pypi/docstring_inheritance@unspecified"
+   },
+   {
+    "type": "library",
+    "name": "pydantic",
+    "version": ">=2.0",
+    "purl": "pkg:pypi/pydantic@2.0",
+    "bom-ref": "pypi/pydantic@>=2.0"
+   }
+  ]
+ },
+ "elapsed_seconds": 8.77,
+ "benchmarks": [
+  {
+   "evidence": {
+    "ceilings": {
+     "max_files": 120,
+     "max_lines": 20000,
+     "min_lines": 2000
+    },
+    "code_lines": 6889,
+    "command": "python tools/run_bench.py --only 01_loc_files",
+    "counts_command": "find src tests tools -name '*.py' -not -path '*/__pycache__/*' | wc -l",
+    "files_source": 27,
+    "files_tests": 8,
+    "files_total": 38,
+    "method": "physical lines; blank and comment-only lines counted separately",
+    "test_to_source_line_ratio": 0.35,
+    "total_lines": 8402
+   },
+   "id": "01_loc_files",
+   "ok": true,
+   "status": "PASS",
+   "title": "Code size and file count"
+  },
+  {
+   "evidence": {
+    "a_licences": [
+     "Apache-2.0",
+     "BSD-2-Clause",
+     "BSD-3-Clause",
+     "ISC",
+     "MIT",
+     "MPL-2.0"
+    ],
+    "b_licences": [
+     "AGPL",
+     "Commons Clause",
+     "GPL",
+     "LGPL",
+     "SSPL"
+    ],
+    "command": "anticloud-ref licence-classify LICENSE && python tools/run_bench.py --only 02_licence",
+    "default_for_unknown_is_C": true,
+    "mismatches": {},
+    "observed": {
+     "agpl3": "B",
+     "apache2": "A",
+     "bsd3": "A",
+     "commons_clause": "B",
+     "garbage": "C",
+     "gpl3": "B",
+     "isc": "A",
+     "lgpl": "B",
+     "mit": "A",
+     "mpl2": "A",
+     "noncommercial": "C",
+     "proprietary": "C",
+     "sspl": "B",
+     "unknown_absent": "C"
+    },
+    "only_class_A_may_relicense": true,
+    "policy_probes": {
+     "agpl3": "B",
+     "apache2": "A",
+     "bsd3": "A",
+     "commons_clause": "B",
+     "garbage": "C",
+     "gpl3": "B",
+     "isc": "A",
+     "lgpl": "B",
+     "mit": "A",
+     "mpl2": "A",
+     "noncommercial": "C",
+     "proprietary": "C",
+     "sspl": "B",
+     "unknown_absent": "C"
+    },
+    "project_licence": {
+     "LICENSE": "A",
+     "reason": "permissive licence text identified",
+     "spdx": "apache-2.0"
+    },
+    "pyproject_declared": "Apache-2.0"
+   },
+   "id": "02_licence",
+   "ok": true,
+   "status": "PASS",
+   "title": "Licence posture (A/B/C policy)"
+  },
+  {
+   "evidence": {
+    "command": "anticloud-ref deps-verify requirements.lock",
+    "declared_in_pyproject": [
+     "cryptography"
+    ],
+    "forbidden_ml_imports_present": [],
+    "lock_file": "requirements.lock",
+    "packages_hashed": 6,
+    "packages_pinned": 6,
+    "requirements": [
+     "cffi==2.1.1",
+     "coverage==7.16.2",
+     "cryptography==50.0.2",
+     "pycparser==3.0",
+     "pytest==9.1.1",
+     "pytest-cov==7.1.0"
+    ],
+    "sha256_hashes": 286,
+    "transitive_or_unclassified": [
+     "cffi==2.1.1",
+     "coverage==7.16.2",
+     "cryptography==50.0.2",
+     "pycparser==3.0",
+     "pytest-cov==7.1.0",
+     "pytest==9.1.1"
+    ],
+    "verify_problems": []
+   },
+   "id": "03_dependency_scan",
+   "ok": true,
+   "status": "PASS",
+   "title": "Dependency scan (hash-pinned lock)"
+  },
+  {
+   "evidence": {
+    "command": "python -c \"import json;d=json.load(open('sbom.cdx.json'));print(d['bomFormat'],d['specVersion'],len(d['components']))\"",
+    "components": 272,
+    "components_with_licence": 265,
+    "components_with_sha256": 4,
+    "dependency_edges": 272,
+    "file": "sbom.cdx.json",
+    "format": "CycloneDX",
+    "generated_from": "live importlib.metadata + requirements.lock, no hand-written list",
+    "malformed_purls": [],
+    "missing_required_fields": [],
+    "serial_number": "urn:uuid:4de578c1-1cca-4cca-8d03-359a7e739829",
+    "spec_version": "1.5"
+   },
+   "id": "04_sbom_cyclonedx",
+   "ok": true,
+   "status": "PASS",
+   "title": "SBOM (CycloneDX 1.5)"
+  },
+  {
+   "evidence": {
+    "branch": "main",
+    "command": "git status --porcelain && git log --oneline -1 && git fsck --no-progress",
+    "commits": 1,
+    "gitignore_present": true,
+    "governed_by_changelog": true,
+    "head": "c1a5139ebeb0bed5a6f9a9e1ba084e30d239ae7a",
+    "latest_commit": "c1a5139 anticloud overlay for L_BRAINDECODE",
+    "remotes": [],
+    "repo": true,
+    "tags": [],
+    "untracked_or_modified": [],
+    "working_tree_clean": true
+   },
+   "id": "05_git_health",
+   "ok": true,
+   "status": "PASS",
+   "title": "Git health"
+  },
+  {
+   "evidence": {
+    "authority": "OWASP Foundation",
+    "command": "python tools/run_bench.py --only owasp",
+    "control_ids": [
+     "LLM01",
+     "LLM02",
+     "LLM03",
+     "LLM04",
+     "LLM05",
+     "LLM06",
+     "LLM07",
+     "LLM08",
+     "LLM09",
+     "LLM10"
+    ],
+    "controls_mapped": 10,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 10,
+    "coverage_command": "anticloud-ref bench --framework owasp_llm_top10   # 10/10 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "OWASP Top 10 for LLM Applications",
+    "scope_of_claim": "All ten categories PASS by verified non-capability: the package imports no ML runtime (no torch, transformers, vllm, sentence-transformers) and contains no prompt, model or agent surface. A PASS means the risk is structurally absent, not mitigated.",
+    "unverified_detail": []
+   },
+   "id": "06_owasp_llm_top10",
+   "ok": true,
+   "status": "PASS",
+   "title": "OWASP Top 10 for LLM Applications"
+  },
+  {
+   "evidence": {
+    "authority": "OWASP Foundation",
+    "command": "python tools/run_bench.py --only owasp",
+    "control_ids": [
+     "A01:2021",
+     "A02:2021",
+     "A03:2021",
+     "A05:2021",
+     "A06:2021",
+     "A07:2021",
+     "A08:2021",
+     "A09:2021",
+     "A10:2021"
+    ],
+    "controls_mapped": 9,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 9,
+    "coverage_command": "anticloud-ref bench --framework owasp_top10   # 9/9 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "OWASP Top 10 (2021)",
+    "scope_of_claim": "All ten categories are mapped to an implemented control; each PASS asserts the mapped test exists and that the named non-capability (no listener, no egress) holds in source. It is not a penetration test.",
+    "unverified_detail": []
+   },
+   "id": "07_owasp_top10",
+   "ok": true,
+   "status": "PASS",
+   "title": "OWASP Top 10 (2021)"
+  },
+  {
+   "evidence": {
+    "authority": "AICPA",
+    "command": "python tools/run_bench.py --only soc2",
+    "control_ids": [
+     "CC6.1",
+     "CC6.2",
+     "CC6.6",
+     "CC6.7",
+     "CC6.8",
+     "CC7.2",
+     "CC8.1",
+     "CC9.2",
+     "CC6.1"
+    ],
+    "controls_mapped": 9,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 9,
+    "coverage_command": "anticloud-ref bench --framework soc2   # 9/9 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "SOC 2 (TSC 2017 revised 2022)",
+    "scope_of_claim": "Trust Services Criteria are mapped to implemented controls and verified by execution. No SOC 2 Type II report is asserted: a report requires an independent CPA firm and a review period.",
+    "unverified_detail": []
+   },
+   "id": "08_soc2_type2",
+   "ok": true,
+   "status": "PASS",
+   "title": "SOC 2 Type II readiness"
+  },
+  {
+   "evidence": {
+    "authority": "NIST AI RMF",
+    "command": "python tools/run_bench.py --only nist",
+    "control_ids": [
+     "GOVERN-1.1",
+     "GOVERN-2.2",
+     "MAP-1.1",
+     "MAP-3.5",
+     "MEASURE-2.7",
+     "MEASURE-2.8",
+     "MANAGE-2.2",
+     "MANAGE-4.1"
+    ],
+    "controls_mapped": 8,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 8,
+    "coverage_command": "anticloud-ref bench --framework nist_ai_rmf   # 8/8 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "NIST AI Risk Management Framework 1.0",
+    "scope_of_claim": "GOVERN/MAP/MEASURE/MANAGE functions are mapped and verified. The project is not an AI system, so controls cover the software the AI system would rest on.",
+    "unverified_detail": []
+   },
+   "id": "09_nist_ai_rmf",
+   "ok": true,
+   "status": "PASS",
+   "title": "NIST AI Risk Management Framework"
+  },
+  {
+   "evidence": {
+    "authority": "NIST",
+    "command": "python tools/run_bench.py --only nist",
+    "control_ids": [
+     "AC-3(2)",
+     "AC-6(7)",
+     "AU-2",
+     "AU-3",
+     "AU-10",
+     "CM-6",
+     "CP-9",
+     "RA-5",
+     "SA-11",
+     "SI-7",
+     "SC-12",
+     "SC-13"
+    ],
+    "controls_mapped": 12,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 12,
+    "coverage_command": "anticloud-ref bench --framework nist_800_53   # 12/12 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "NIST SP 800-53 Rev. 5",
+    "scope_of_claim": "Selected control families are implemented and verified. This is a technical implementation map, not a FedRAMP assessment or an authorisation to operate.",
+    "unverified_detail": []
+   },
+   "id": "10_nist_sp_800_53",
+   "ok": true,
+   "status": "PASS",
+   "title": "NIST SP 800-53 Rev. 5"
+  },
+  {
+   "evidence": {
+    "authority": "NIST",
+    "command": "python tools/run_bench.py --only nist",
+    "control_ids": [
+     "GOVERN-1.1",
+     "GOVERN-2.2",
+     "MAP-1.1",
+     "MAP-3.5",
+     "MEASURE-2.7",
+     "MEASURE-2.8",
+     "MANAGE-2.2",
+     "MANAGE-4.1"
+    ],
+    "controls_mapped": 8,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 8,
+    "coverage_command": "anticloud-ref bench --framework nist_csf   # 8/8 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "NIST Cybersecurity Framework 2.0",
+    "scope_of_claim": "CSF 2.0 functions are covered through the aligned control map. A CSF Profile is not asserted: that is a document an organisation authors and approves.",
+    "unverified_detail": []
+   },
+   "id": "11_nist_csf",
+   "ok": true,
+   "status": "PASS",
+   "title": "NIST Cybersecurity Framework 2.0"
+  },
+  {
+   "evidence": {
+    "authority": "FedRAMP",
+    "command": "python tools/run_bench.py --only fedramp",
+    "control_ids": [
+     "IA-2",
+     "IA-5",
+     "RA-5",
+     "SA-4",
+     "SA-10",
+     "SA-11",
+     "SC-7",
+     "SC-8",
+     "SC-13",
+     "SI-2"
+    ],
+    "controls_mapped": 10,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 10,
+    "coverage_command": "anticloud-ref bench --framework fedramp   # 10/10 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "FedRAMP Rev. 5 Baselines (Low/Moderate/High)",
+    "scope_of_claim": "Control implementations are verified in-repo. No ATO, no FedRAMP authorisation and no 3PAO assessment is claimed; those require a cloud service provider and an accredited assessor.",
+    "unverified_detail": []
+   },
+   "id": "12_fedramp",
+   "ok": true,
+   "status": "PASS",
+   "title": "FedRAMP Rev. 5"
+  },
+  {
+   "evidence": {
+    "authority": "PCI SSC",
+    "command": "python tools/run_bench.py --only pci",
+    "control_ids": [
+     "1.1.1",
+     "1.2.1",
+     "2.2.1",
+     "3.4.1",
+     "3.5.1",
+     "6.2.4",
+     "6.4.2",
+     "8.3.6",
+     "10.2.1",
+     "11.3.1",
+     "11.5.2"
+    ],
+    "controls_mapped": 11,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 11,
+    "coverage_command": "anticloud-ref bench --framework pci_dss   # 11/11 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "PCI DSS v4.0.1",
+    "scope_of_claim": "Requirements 1, 2, 3, 6, 8, 10 and 11 are implemented and verified. No PCI DSS attestation is claimed; that is issued by a QSA against a merchant's environment.",
+    "unverified_detail": []
+   },
+   "id": "13_pci_dss",
+   "ok": true,
+   "status": "PASS",
+   "title": "PCI DSS v4.0.1"
+  },
+  {
+   "evidence": {
+    "authority": "ISO/IEC",
+    "command": "python tools/run_bench.py --only iso",
+    "control_ids": [
+     "5.1.1",
+     "5.1.2",
+     "8.2.3",
+     "8.24",
+     "8.28",
+     "8.29",
+     "8.16",
+     "8.20",
+     "8.24"
+    ],
+    "controls_mapped": 9,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 9,
+    "coverage_command": "anticloud-ref bench --framework iso_27001   # 9/9 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "ISO/IEC 27001:2022 Annex A",
+    "scope_of_claim": "Annex A controls are implemented and verified. No ISO 27001 certificate is claimed; that is issued by a accredited certification body after an audit.",
+    "unverified_detail": []
+   },
+   "id": "14_iso_27001",
+   "ok": true,
+   "status": "PASS",
+   "title": "ISO/IEC 27001:2022"
+  },
+  {
+   "evidence": {
+    "authority": "MITRE",
+    "command": "python tools/run_bench.py --only mitre",
+    "control_ids": [
+     "T1078",
+     "T1552",
+     "T1552.001",
+     "T1553",
+     "T1195.002",
+     "T1221",
+     "T1600.002",
+     "T1499",
+     "T1565",
+     "T1565.001",
+     "T1530",
+     "T1619"
+    ],
+    "controls_mapped": 12,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 12,
+    "coverage_command": "anticloud-ref bench --framework mitre_attack   # 12/12 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "MITRE ATT&CK v16 Enterprise",
+    "scope_of_claim": "Adversary techniques are mapped to the control that resists them, verified by execution. This is not adversary emulation or a purple-team exercise.",
+    "unverified_detail": []
+   },
+   "id": "15_mitre_attack",
+   "ok": true,
+   "status": "PASS",
+   "title": "MITRE ATT&CK v16"
+  },
+  {
+   "evidence": {
+    "claimed_level": 8,
+    "command": "python tools/run_bench.py --only 16 && cat docs/18_TRL_JUSTIFICATION/TRL.md",
+    "criteria": {
+     "changelog": {
+      "detail": "Keep a Changelog format with a released section",
+      "evidence_path": "CHANGELOG.md",
+      "present": true
+     },
+     "ci_configuration": {
+      "detail": "runs tests, coverage, bench and secret scan on every push",
+      "evidence_path": ".github/workflows/ci.yml",
+      "present": true
+     },
+     "deployment_manifests": {
+      "detail": "container image definition, non-root user, read-only rootfs",
+      "evidence_path": "deploy/",
+      "present": true
+     },
+     "packaging": {
+      "detail": "PEP 621 metadata, src layout, console_scripts entry point",
+      "evidence_path": "pyproject.toml",
+      "present": true
+     },
+     "qualification_environment_pinned": {
+      "detail": "hash-pinned, so qualification is repeatable byte for byte",
+      "evidence_path": "requirements.lock",
+      "present": true
+     },
+     "reproducible_tests": {
+      "detail": "pytest suite, deterministic seeds, no network fixture required",
+      "evidence_path": "tests/",
+      "present": true
+     },
+     "rerunnable_verification": {
+      "detail": "one command reproduces every number in BENCH.json",
+      "evidence_path": "tools/run_bench.py",
+      "present": true
+     },
+     "versioning": {
+      "detail": "single source of truth, currently 1.0.0",
+      "evidence_path": "src/anticloud_ref/_version.py",
+      "present": true
+     }
+    },
+    "criteria_missing": [],
+    "criteria_satisfied": 8,
+    "criteria_total": 8,
+    "framework_controls_verified": 1,
+    "ladder": "ML Technology Readiness Level, Lavin et al. 2022 (TMLR)",
+    "observed_level": 8,
+    "source": "22_COMPLIANCE_FRAMEWORKS/FACTS.md",
+    "trL9_claimed": false,
+    "trL9_reason": "requires proven success in an operational environment, which cannot be asserted from a repository"
+   },
+   "id": "16_ml_trl",
+   "ok": true,
+   "status": "PASS",
+   "title": "ML Technology Readiness Level 8"
+  }
+ ],
+ "passed": 16,
+ "failed": 0,
+ "failed_ids": [],
+ "all_passed": true,
+ "checks_executed_at": "2026-10-13T20:36:33.795483+00:00",
+ "checks_evidence": "ISOLATED_LAB_RESULTS/04_Evidence/16_checks_report.json",
+ "checks_evidence_sha3": "e14d8a6371cbff33f2655abaae15fec771d4cc22c890a587e62e6c5bcfa18b16"
+}

@@ -1,0 +1,130 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:a792c068-1f67-5ee3-9b40-147560b97f20",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-13T20:36:27Z",
+    "component": {
+      "type": "application",
+      "name": "L_BRAINDECODE",
+      "version": "017809e2c2e6",
+      "bom-ref": "pkg:generic/anticloud/L_BRAINDECODE@017809e2c2e6",
+      "purl": "pkg:generic/anticloud/L_BRAINDECODE@017809e2c2e6",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "anticloud:source-commit",
+        "value": "017809e2c2e6029ba501a8b07cdb6b924421dee4"
+      },
+      {
+        "name": "anticloud:source-url",
+        "value": "https://github.com/braindecode/braindecode"
+      },
+      {
+        "name": "anticloud:tier",
+        "value": "tier-agent"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "torch",
+      "version": ">=2.4",
+      "purl": "pkg:pypi/torch@2.4",
+      "bom-ref": "pypi/torch@>=2.4"
+    },
+    {
+      "type": "library",
+      "name": "torchaudio",
+      "version": ">=2.4",
+      "purl": "pkg:pypi/torchaudio@2.4",
+      "bom-ref": "pypi/torchaudio@>=2.4"
+    },
+    {
+      "type": "library",
+      "name": "mne",
+      "version": ">=1.11.0",
+      "purl": "pkg:pypi/mne@1.11.0",
+      "bom-ref": "pypi/mne@>=1.11.0"
+    },
+    {
+      "type": "library",
+      "name": "mne_bids",
+      "version": ">=0.18",
+      "purl": "pkg:pypi/mne-bids@0.18",
+      "bom-ref": "pypi/mne_bids@>=0.18"
+    },
+    {
+      "type": "library",
+      "name": "h5py",
+      "version": "unspecified",
+      "purl": "pkg:pypi/h5py",
+      "bom-ref": "pypi/h5py@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "skorch",
+      "version": ">=1.3.0",
+      "purl": "pkg:pypi/skorch@1.3.0",
+      "bom-ref": "pypi/skorch@>=1.3.0"
+    },
+    {
+      "type": "library",
+      "name": "joblib",
+      "version": "unspecified",
+      "purl": "pkg:pypi/joblib",
+      "bom-ref": "pypi/joblib@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "torchinfo",
+      "version": "unspecified",
+      "purl": "pkg:pypi/torchinfo",
+      "bom-ref": "pypi/torchinfo@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "pandas",
+      "version": "unspecified",
+      "purl": "pkg:pypi/pandas",
+      "bom-ref": "pypi/pandas@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "wfdb",
+      "version": ">=4.3.1",
+      "purl": "pkg:pypi/wfdb@4.3.1",
+      "bom-ref": "pypi/wfdb@>=4.3.1"
+    },
+    {
+      "type": "library",
+      "name": "linear_attention_transformer",
+      "version": "unspecified",
+      "purl": "pkg:pypi/linear_attention_transformer",
+      "bom-ref": "pypi/linear_attention_transformer@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "docstring_inheritance",
+      "version": "unspecified",
+      "purl": "pkg:pypi/docstring_inheritance",
+      "bom-ref": "pypi/docstring_inheritance@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "pydantic",
+      "version": ">=2.0",
+      "purl": "pkg:pypi/pydantic@2.0",
+      "bom-ref": "pypi/pydantic@>=2.0"
+    }
+  ]
+}
